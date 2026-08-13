@@ -3,6 +3,7 @@ import { fileURLToPath } from 'node:url'
 import HtmlWebpackPlugin from 'html-webpack-plugin'
 import { CleanWebpackPlugin } from 'clean-webpack-plugin'
 import CopyWebpackPlugin from 'copy-webpack-plugin'
+import MiniCssExtractPlugin from 'mini-css-extract-plugin'
 import CssMinimizerPlugin from 'css-minimizer-webpack-plugin'
 
 const __filename = fileURLToPath(import.meta.url)
@@ -13,6 +14,15 @@ const IS_PROD = process.env.NODE_ENV === 'production'
 
 const getFilename = (ext) => IS_PROD ? `[name].[fullhash].${ext}` : `[name].${ext}`
 
+const setCssLoaders = (extra) => {
+    const loaders = [MiniCssExtractPlugin.loader, 'css-loader']
+
+    if (extra) {
+        loaders.push(extra)
+    }
+
+    return loaders
+}
 
 export default {
     context: path.resolve(__dirname, 'src'),
@@ -31,14 +41,14 @@ export default {
         filename: getFilename(".js"),
     },
     resolve: {
-        extensions: ["js", "jsx", "json",  ".ts", ".tsx"],
+        extensions: [".js", ".jsx", ".json",  ".ts", ".tsx"],
     },
     optimization: {
       splitChunks: {
           chunks: 'all',
       },
         minimize: IS_PROD,
-        minimizer: [ `...`, new CssMinimizerPlugin() ]
+        minimizer: [ "...", new CssMinimizerPlugin() ]
     },
     plugins: [new HtmlWebpackPlugin({
         template: './index.html',
@@ -49,10 +59,25 @@ export default {
                 from: path.resolve(__dirname, 'src', 'favicon.png'),
                 to: path.resolve(__dirname, 'favicon.png'),
             }]
+        }),
+        new MiniCssExtractPlugin({
+            filename: getFilename('css'),
         })
     ],
     module: {
         rules: [
+            {
+                test: /\.css$/i,
+                use: setCssLoaders(),
+            },
+            {
+                test: /\.less$/i,
+                use: setCssLoaders('less-loader'),
+            },
+            {
+                test: /\.s[ac]ss$/i,
+                use: setCssLoaders('sass-loader'),
+            },
             {
                  test: /\.(png|jpg|jpeg|gif|svg|ttf|woff|woff2)$/,
                 type: "asset/resource",
