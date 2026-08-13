@@ -360,7 +360,7 @@ template {
     font-family: 'Open Sans';
     font-style: normal;
     font-weight: 300;
-    src: url(assets/fonts/open-sans-v44-cyrillic_latin-300.652308764a2f16234c9e.woff2) format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+    src: url(../../assets/fonts/open-sans-v44-cyrillic_latin-300.652308764a2f16234c9e.woff2) format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
 }
 /* open-sans-300italic - cyrillic_latin */
 @font-face {
@@ -368,7 +368,7 @@ template {
     font-family: 'Open Sans';
     font-style: italic;
     font-weight: 300;
-    src: url(assets/fonts/open-sans-v44-cyrillic_latin-300italic.2067e56a60fcfa1e06c5.woff2) format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+    src: url(../../assets/fonts/open-sans-v44-cyrillic_latin-300italic.2067e56a60fcfa1e06c5.woff2) format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
 }
 /* open-sans-regular - cyrillic_latin */
 @font-face {
@@ -376,7 +376,7 @@ template {
     font-family: 'Open Sans';
     font-style: normal;
     font-weight: 400;
-    src: url(assets/fonts/open-sans-v44-cyrillic_latin-regular.4dc29bd4a523410d4447.woff2) format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+    src: url(../../assets/fonts/open-sans-v44-cyrillic_latin-regular.4dc29bd4a523410d4447.woff2) format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
 }
 /* open-sans-italic - cyrillic_latin */
 @font-face {
@@ -384,7 +384,7 @@ template {
     font-family: 'Open Sans';
     font-style: italic;
     font-weight: 400;
-    src: url(assets/fonts/open-sans-v44-cyrillic_latin-italic.0b4c9dc392fac4dd9532.woff2) format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+    src: url(../../assets/fonts/open-sans-v44-cyrillic_latin-italic.0b4c9dc392fac4dd9532.woff2) format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
 }
 /* open-sans-500 - cyrillic_latin */
 @font-face {
@@ -392,7 +392,7 @@ template {
     font-family: 'Open Sans';
     font-style: normal;
     font-weight: 500;
-    src: url(assets/fonts/open-sans-v44-cyrillic_latin-500.95d01f6d4b505c02cc03.woff2) format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+    src: url(../../assets/fonts/open-sans-v44-cyrillic_latin-500.95d01f6d4b505c02cc03.woff2) format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
 }
 /* open-sans-500italic - cyrillic_latin */
 @font-face {
@@ -400,7 +400,7 @@ template {
     font-family: 'Open Sans';
     font-style: italic;
     font-weight: 500;
-    src: url(assets/fonts/open-sans-v44-cyrillic_latin-500italic.9f1826065d22584388c1.woff2) format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+    src: url(../../assets/fonts/open-sans-v44-cyrillic_latin-500italic.9f1826065d22584388c1.woff2) format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
 }
 /* open-sans-600 - cyrillic_latin */
 @font-face {
@@ -408,7 +408,7 @@ template {
     font-family: 'Open Sans';
     font-style: normal;
     font-weight: 600;
-    src: url(assets/fonts/open-sans-v44-cyrillic_latin-600.5ba575cb5ebe5a81ed4d.woff2) format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+    src: url(../../assets/fonts/open-sans-v44-cyrillic_latin-600.5ba575cb5ebe5a81ed4d.woff2) format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
 }
 /* open-sans-600italic - cyrillic_latin */
 @font-face {
@@ -416,7 +416,7 @@ template {
     font-family: 'Open Sans';
     font-style: italic;
     font-weight: 600;
-    src: url(assets/fonts/open-sans-v44-cyrillic_latin-600italic.6ac2f1ccfc2f6c4dc706.woff2) format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+    src: url(../../assets/fonts/open-sans-v44-cyrillic_latin-600italic.6ac2f1ccfc2f6c4dc706.woff2) format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
 }
 /* open-sans-700 - cyrillic_latin */
 @font-face {
@@ -424,7 +424,7 @@ template {
     font-family: 'Open Sans';
     font-style: normal;
     font-weight: 700;
-    src: url(assets/fonts/open-sans-v44-cyrillic_latin-700.c7eada3f3910fbd4d12d.woff2) format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+    src: url(../../assets/fonts/open-sans-v44-cyrillic_latin-700.c7eada3f3910fbd4d12d.woff2) format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
 }
 /* open-sans-700italic - cyrillic_latin */
 @font-face {
@@ -432,7 +432,7 @@ template {
     font-family: 'Open Sans';
     font-style: italic;
     font-weight: 700;
-    src: url(assets/fonts/open-sans-v44-cyrillic_latin-700italic.2d1404596e0859978e19.woff2) format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+    src: url(../../assets/fonts/open-sans-v44-cyrillic_latin-700italic.2d1404596e0859978e19.woff2) format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
 }
 /* open-sans-800 - cyrillic_latin */
 @font-face {
@@ -440,7 +440,7 @@ template {
     font-family: 'Open Sans';
     font-style: normal;
     font-weight: 800;
-    src: url(assets/fonts/open-sans-v44-cyrillic_latin-800.ebb792652bf9aad23c61.woff2) format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+    src: url(../../assets/fonts/open-sans-v44-cyrillic_latin-800.ebb792652bf9aad23c61.woff2) format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
 }
 /* open-sans-800italic - cyrillic_latin */
 @font-face {
@@ -448,7 +448,7 @@ template {
     font-family: 'Open Sans';
     font-style: italic;
     font-weight: 800;
-    src: url(assets/fonts/open-sans-v44-cyrillic_latin-800italic.e09bad98b4289976d0e4.woff2) format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+    src: url(../../assets/fonts/open-sans-v44-cyrillic_latin-800italic.e09bad98b4289976d0e4.woff2) format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
 }
 /*!******************************************************************!*\
   !*** css ../node_modules/css-loader/dist/cjs.js!./css/style.css ***!
@@ -470,7 +470,7 @@ h1 {
 }
 
 .logo {
-    background-image: url(assets/images/icon-square-big.47692505d122dbcae490.png.png);
+    background-image: url(../../assets/images/icon-square-big.47692505d122dbcae490.png.png);
     background-size: cover;
     width: 300px;
     height: 300px;

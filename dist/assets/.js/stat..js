@@ -10,13 +10,13 @@
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
-/***/ "./statistics.js"
+/***/ "./statistics.ts"
 /*!***********************!*\
-  !*** ./statistics.js ***!
+  !*** ./statistics.ts ***!
   \***********************/
-(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
-eval("{__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ \"../node_modules/jquery/dist-module/jquery.module.js\");\n\n\nfunction createStatistics() {\n    let counter = 0\n    let isDestroyed = false\n    const listener = () => counter++\n    ;(0,jquery__WEBPACK_IMPORTED_MODULE_0__[\"default\"])(document).on('click', listener)\n    return {\n        destroy() {\n            ;(0,jquery__WEBPACK_IMPORTED_MODULE_0__[\"default\"])(document).off('click', listener)\n            isDestroyed = true\n            return 'Statistics fully destroyed'\n        },\n        getClicks() {\n            if (isDestroyed) return 'Statistics is destroyed'\n            return counter\n        }\n    }\n}\nwindow.statistics = createStatistics()\n\n//# sourceURL=webpack:///./statistics.js?\n}");
+eval("{__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ \"../node_modules/jquery/dist-module/jquery.module.js\");\n\nfunction createStatistics() {\n  var counter = 0;\n  var isDestroyed = false;\n  var listener = function listener() {\n    return counter++;\n  };\n  (0,jquery__WEBPACK_IMPORTED_MODULE_0__[\"default\"])(document).on('click', listener);\n  return {\n    destroy: function destroy() {\n      (0,jquery__WEBPACK_IMPORTED_MODULE_0__[\"default\"])(document).off('click', listener);\n      isDestroyed = true;\n      return 'Statistics fully destroyed';\n    },\n    getClicks: function getClicks() {\n      if (isDestroyed) return 'Statistics is destroyed';\n      return counter;\n    }\n  };\n}\nwindow.statistics = createStatistics();\n\n//# sourceURL=webpack:///./statistics.ts?\n}");
 
 /***/ }
 
@@ -189,7 +189,7 @@ eval("{__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var jqu
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
 /******/ 	// This entry module depends on other loaded chunks and execution need to be delayed
-/******/ 	let __webpack_exports__ = __webpack_require__.O(undefined, ["vendors-node_modules_jquery_dist-module_jquery_module_js"], () => (__webpack_require__("./statistics.js")))
+/******/ 	let __webpack_exports__ = __webpack_require__.O(undefined, ["vendors-node_modules_jquery_dist-module_jquery_module_js"], () => (__webpack_require__("./statistics.ts")))
 /******/ 	__webpack_exports__ = __webpack_require__.O(__webpack_exports__);
 /******/ 	
 /******/ })()

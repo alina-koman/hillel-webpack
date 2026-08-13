@@ -5,6 +5,7 @@ import { CleanWebpackPlugin } from 'clean-webpack-plugin'
 import CopyWebpackPlugin from 'copy-webpack-plugin'
 import MiniCssExtractPlugin from 'mini-css-extract-plugin'
 import CssMinimizerPlugin from 'css-minimizer-webpack-plugin'
+import TerserPlugin from 'terser-webpack-plugin'
 
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
@@ -12,23 +13,58 @@ const __dirname = path.dirname(__filename)
 const IS_DEV = process.env.NODE_ENV === 'development'
 const IS_PROD = process.env.NODE_ENV === 'production'
 
-const getFilename = (ext) => IS_PROD ? `[name].[fullhash].${ext}` : `[name].${ext}`
+const getFilename = (ext) => `assets/${ext}/[name]${IS_DEV ? '' : '.[fullhash]'}.${ext}`
 
 const setCssLoaders = (extra) => {
     const loaders = [MiniCssExtractPlugin.loader, 'css-loader']
-
     if (extra) {
         loaders.push(extra)
     }
-
     return loaders
+}
+
+const setJsLoaders = (extra) => {
+    const presets = ['@babel/preset-env']
+    if (extra) {
+        presets.push(extra)
+    }
+    
+    return [{
+        loader: "babel-loader",
+        options: { presets }
+    }]
+}
+
+const setPlugins = (extra) => {
+    const plugins = [new HtmlWebpackPlugin({
+        template: './index.html',
+    }),
+        new CleanWebpackPlugin({
+            cleanOnceBeforeBuildPatterns: ['**/*', '!.gitkeep']
+        }),
+        new CopyWebpackPlugin({
+            patterns: [{
+                from: path.resolve(__dirname, 'src', 'favicon.png'),
+                to: path.resolve(__dirname, 'favicon.png'),
+            }]
+        }),
+        new MiniCssExtractPlugin({
+            filename: getFilename('css'),
+        })
+    ]
+
+    if (IS_PROD) {
+        // code here
+    }
+
+    return plugins
 }
 
 export default {
     context: path.resolve(__dirname, 'src'),
     entry: {
       main: "./index.js",
-      stat: "./statistics.js"
+      stat: "./statistics.ts"
     },
     target: "web",
     devServer: {
@@ -48,24 +84,27 @@ export default {
           chunks: 'all',
       },
         minimize: IS_PROD,
-        minimizer: [ "...", new CssMinimizerPlugin() ]
+        minimizer: [
+            "...",
+            new CssMinimizerPlugin(),
+            new TerserPlugin()
+        ]
     },
-    plugins: [new HtmlWebpackPlugin({
-        template: './index.html',
-    }),
-        new CleanWebpackPlugin(),
-        new CopyWebpackPlugin({
-            patterns: [{
-                from: path.resolve(__dirname, 'src', 'favicon.png'),
-                to: path.resolve(__dirname, 'favicon.png'),
-            }]
-        }),
-        new MiniCssExtractPlugin({
-            filename: getFilename('css'),
-        })
+    plugins: [
+        ...setPlugins(),
     ],
     module: {
         rules: [
+            {
+                test: /\.m?js$/,
+                exclude: /node_modules/,
+                use: setJsLoaders()
+            },
+            {
+                test: /\.ts$/,
+                exclude: /node_modules/,
+                use: setJsLoaders('@babel/preset-typescript')
+            },
             {
                 test: /\.css$/i,
                 use: setCssLoaders(),
