@@ -1,11 +1,18 @@
 import path from "node:path"
-import { fileURLToPath } from "node:url"
+import { fileURLToPath } from 'node:url'
 import HtmlWebpackPlugin from 'html-webpack-plugin'
 import { CleanWebpackPlugin } from 'clean-webpack-plugin'
-import * as test from "node:test";
+import CopyWebpackPlugin from 'copy-webpack-plugin'
+import CssMinimizerPlugin from 'css-minimizer-webpack-plugin'
 
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
+
+const IS_DEV = process.env.NODE_ENV === 'development'
+const IS_PROD = process.env.NODE_ENV === 'production'
+
+const getFilename = (ext) => IS_PROD ? `[name].[fullhash].${ext}` : `[name].${ext}`
+
 
 export default {
     context: path.resolve(__dirname, 'src'),
@@ -13,10 +20,15 @@ export default {
       main: "./index.js",
       stat: "./statistics.js"
     },
+    target: "web",
+    devServer: {
+      port: 4200,
+      hot: false ,
+    },
     mode: "development",
     output: {
         path: path.resolve(__dirname, "dist"),
-        filename: "[name].[contenthash].js",
+        filename: getFilename(".js"),
     },
     resolve: {
         extensions: ["js", "jsx", "json",  ".ts", ".tsx"],
@@ -24,12 +36,20 @@ export default {
     optimization: {
       splitChunks: {
           chunks: 'all',
-      }
+      },
+        minimize: IS_PROD,
+        minimizer: [ `...`, new CssMinimizerPlugin() ]
     },
     plugins: [new HtmlWebpackPlugin({
         template: './index.html',
     }),
         new CleanWebpackPlugin(),
+        new CopyWebpackPlugin({
+            patterns: [{
+                from: path.resolve(__dirname, 'src', 'favicon.png'),
+                to: path.resolve(__dirname, 'favicon.png'),
+            }]
+        })
     ],
     module: {
         rules: [
