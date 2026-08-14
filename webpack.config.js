@@ -74,7 +74,7 @@ export default {
     mode: "development",
     output: {
         path: path.resolve(__dirname, "dist"),
-        filename: getFilename(".js"),
+        filename: getFilename("js"),
     },
     resolve: {
         extensions: [".js", ".jsx", ".json",  ".ts", ".tsx"],
@@ -118,21 +118,17 @@ export default {
                 use: setCssLoaders('sass-loader'),
             },
             {
-                 test: /\.(png|jpg|jpeg|gif|svg|ttf|woff|woff2)$/,
-                type: "asset/resource",
-            },
-            {
-                test: /\.(woff|woff2|eot|ttf|otf)$/,
+                test: /\.(woff|woff2|eot|ttf|otf)$/i,
                 type: "asset/resource",
                 generator: {
                     filename: "assets/fonts/[name].[contenthash][ext]",
                 }
             },
             {
-                test: /\.png|jpe?g|gif$|webp|svg$/,
+                test: /\.(png|jpe?g|gif|webp|svg)$/i,
                 type: "asset/resource",
                 generator: {
-                    filename: "assets/images/[name].[contenthash][ext].png",
+                    filename: "assets/images/[name].[contenthash][ext]",
                 }
             }
         ]
